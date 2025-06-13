@@ -2,6 +2,60 @@
 
 ---
 
+## 📖 Introduction
+
+In Southeast Asia, online shopping festivals like 11.11 and 12.12 create massive spikes in demand. Shopee, as a leading platform, offers rich data to help sellers optimize their pricing and inventory strategies. In this project, we aim to model and forecast fashion sales based on product characteristics during these events.
+
+---
+
+## 🧪 Model Evaluation
+
+We tested four models on a 33% test split and evaluated performance using RMSE and R².
+
+### 📊 Performance Comparison
+
+| Model                | RMSE (🔳 lower better) | R² Score (🔳 closer to 1 better) |
+| -------------------- | ----------------------  | -------------------------------- |
+| SVR (Support Vector) | **317.98**              | **0.9938**                       |
+| XGBoost + KPCA       | 357.53                  | 0.959                            |
+| XGBoost + PCA        | 368.659                 | 0.9926                           |
+| XGBoost (Standard)   | 3443.66                 | 0.428                            |
+
+> ✅ **SVR achieves the best overall performance** on RMSE and R², making it the most reliable predictor in this study.
+
+---
+
+## 🌐 Environment Setup
+
+```bash
+Python 3.10
+scikit-learn >= 1.1
+xgboost >= 1.7
+joblib
+matplotlib
+pandas
+```
+
+You can install dependencies with:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 📄 Sample Input CSV Format
+
+```csv
+price_ori,item_rating,price_actual,total_rating,favorite,discount
+59.90,4.8,29.90,1245,980,50.08
+89.90,4.6,40.00,837,710,55.48
+```
+
+---
+
+---
+
 ## 📌 Project Overview
 
 This project applies machine learning models — specifically SVR and XGBoost enhanced with Kernel PCA — to forecast Shopee fashion product sales during major promotional events (e.g., 11.11, 12.12).
